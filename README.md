@@ -1,3 +1,3 @@
 # Fases Paralelas
 
-Nome: Kin Max Pimaolini Gusmão
+Nome: Kin Max Piamolini Gusmão

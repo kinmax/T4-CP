@@ -1,24 +1,23 @@
-MPICC = mpicc -o bubble_fases bubble_fases.c
-LADCOMP = ladcomp -env mpicc -o bubble_fases bubble_fases.c
-GCC = gcc -o bubble bubble.c
+MPICC = mpicc
+LADCOMP = ladcomp -env
+GCC = gcc
+MPI_FILE = bubble_fases.c
+MPI_EXECUTABLE = bubble_fases
+FILE = bubble.c
+EXECUTABLE = bubble
 
-# targets:
+seq: $(FILE)
+	$(GCC) -o $(EXECUTABLE) $(FILE)
 
-all: Parser.class
+mpi: $(MPI_FILE)
+	$(MPICC) -o $(MPI_EXECUTABLE) $(MPI_FILE)
 
-run: Parser.class
-        java Parser
-
-build: clean Parser.class
+lad: $(MPI_FILE)
+	$(LADCOMP) $(MPICC) -o $(MPI_EXECUTABLE) $(MPI_FILE)
 
 clean:
-        rm -f *~ *.class Yylex.java Parser.java y.output
+	rm -f bubble bubble_fases
 
-Parser.class: TS_entry.java TabSimb.java Yylex.java Parser.java
-        $(JAVAC) Parser.java
+build: clean seq mpi
 
-Yylex.java: exemploSem.flex
-        $(JFLEX) exemploSem.flex
-
-Parser.java: exemploSem.y
-        $(BYACCJ) exemploSem.y
+build_lad: clean seq lad

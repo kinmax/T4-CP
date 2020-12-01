@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-#define DEBUG 1            // comentar esta linha quando for medir tempo
-#define ARRAY_SIZE 1000      // trabalho final com o valores 10.000, 100.000, 1.000.000
+//#define DEBUG 1            // comentar esta linha quando for medir tempo
+#define ARRAY_SIZE 10000      // trabalho final com o valores 10.000, 100.000, 1.000.000
 
 void bs(int n, int * vetor)
 {
@@ -27,6 +28,8 @@ void bs(int n, int * vetor)
 
 int main()
 {
+    clock_t t1, t2;
+    t1 = clock();
     int vetor[ARRAY_SIZE];
     int i;
 
@@ -54,6 +57,10 @@ int main()
         printf("[%03d] ", vetor[i]);
     }
     #endif
+
+    t2 = clock();
+
+    printf("Time: %lf seconds\n", (double)(t2 - t1) / CLOCKS_PER_SEC);
 
     return 0;
 }

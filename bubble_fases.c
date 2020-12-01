@@ -3,8 +3,8 @@
 #include <mpi.h>
 
 //#define DEBUG 1            // printar ou não array antes e depois (comentar para medir tempo)
-#define ARRAY_SIZE 10000      // número de elmentos no vetor
-#define TROCA_SIZE 300 // número de elementos que serão trocados com vizinho
+#define ARRAY_SIZE 100000      // número de elmentos no vetor
+#define TROCA_SIZE 15000 // número de elementos que serão trocados com vizinho
 
 // função para ordenar um vetor com bubble sort
 // parâmetros: int n - número de elementos no vetor
@@ -56,7 +56,6 @@ int main(int argc, char **argv)
     int pronto = 0; // variável de controle para saber se as fases acabaram
     int meu_tam = ARRAY_SIZE/proc_n; // tamanho do meu vetor local
     int *vetor = malloc(sizeof(int)*meu_tam); // vetor de tamanho meu_tam
-    printf("%d\n", meu_tam);
     int tam_geral = meu_tam; // tamanho do vetor local dos processos que não são o último
     if(my_rank == proc_n-1) // sou o último processo
     {

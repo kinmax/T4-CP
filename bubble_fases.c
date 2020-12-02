@@ -3,8 +3,8 @@
 #include <mpi.h>
 
 //#define DEBUG 1            // printar ou não array antes e depois (comentar para medir tempo)
-#define ARRAY_SIZE 100000      // número de elmentos no vetor
-#define TROCA_SIZE 15000 // número de elementos que serão trocados com vizinho
+#define ARRAY_SIZE 1000000      // número de elmentos no vetor
+#define TROCA_SIZE 150000 // número de elementos que serão trocados com vizinho
 
 // função para ordenar um vetor com bubble sort
 // parâmetros: int n - número de elementos no vetor
